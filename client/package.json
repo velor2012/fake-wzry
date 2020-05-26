@@ -1,0 +1,30 @@
+{
+  "name": "mypo",
+  "description": "Nuxt.js TypeScript project",
+  "version": "2.12.2",
+  "private": true,
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^0.4.5",
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.10.1",
+    "@nuxtjs/eslint-config-typescript": "^1.0.2",
+    "cross-env": "^5.2.0",
+    "element-ui": "^2.13.1",
+    "eslint": "^6.8.0",
+    "lodash": "^4.17.15",
+    "nuxt": "^2.12.2",
+    "nuxt-property-decorator": "^2.7.2",
+    "vue2-editor": "^2.10.2",
+    "vuex-class": "^0.3.2"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "cross-env NODE_ENV=production nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "dev-debug": "node --inspect node_modules/.bin/nuxt"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^0.6.5"
+  }
+}

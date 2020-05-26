@@ -1,0 +1,196 @@
+@import './variable.scss';
+@import './sprite.scss';
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
+  background-color: #f1f1f1;
+}
+
+a {
+ text-decoration-line: none;
+ color:black;
+ &:visited{
+    color: map-get($map: $colors, $key: 'grey');
+ }
+}
+
+
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var !important;
+  }
+}
+
+@each $colorKey,
+$color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+
+  .bg-#{$colorKey} {
+    background-color: $color;
+  }
+}
+
+
+
+@each $sizeKey,
+$size in $font-size {
+  .fs-#{$sizeKey} {
+    font-size: $size !important;
+  }
+}
+
+//flex
+.d-flex {
+  display: flex;
+}
+
+
+
+@each $key,
+$value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+
+
+@each $key,
+$value in $flex-ai {
+  .ai-#{$key} {
+    justify-items: $value;
+    align-items:$value;
+  }
+}
+
+.flex-column {
+  flex-direction: column
+}
+.flex-wrap {
+    flex-wrap: wrap;
+  }
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.flex-1 {
+    flex:1 1 0;
+}
+
+
+@each $st_key,
+$st_value in $spacing-types {
+
+  //m-0
+  @each $sizeKey,
+  $sizeValue in $spacing-size {
+
+    //m-0
+    .#{$st_key}-#{$sizeKey} {
+      #{$st_value}: $sizeValue * $spacing-base-size
+    }
+
+    //mx-0水平方向边距一致
+    .#{$st_key}x-#{$sizeKey} {
+      #{$st_value}-left: $sizeValue * $spacing-base-size;
+      #{$st_value}-right: $sizeValue * $spacing-base-size
+    }
+
+    //my-0垂直方向边距一致
+    .#{$st_key}y-#{$sizeKey} {
+      #{$st_value}-top: $sizeValue * $spacing-base-size;
+      #{$st_value}-bottom: $sizeValue * $spacing-base-size
+    }
+  }
+
+  //mt-0  
+  @each $sd_key,
+  $sd_value in $spacing-direction {
+
+    @each $sizeKey,
+    $sizeValue in $spacing-size {
+      .#{$st_key}#{$sd_key}-#{$sizeKey} {
+        #{$st_value}-#{$sd_value}: $sizeValue * $spacing-base-size
+      }
+    }
+  }
+}
+
+//btn
+.btn{
+    font-size: map-get($map: $font-size, $key: 'xs');
+    background-color: map-get($map: $colors, $key: 'primary');
+    border: none;
+    border-radius: 0.1538rem;
+    -webkit-font-smoothing: antialiased;
+}
+.btn-lg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:none;
+    border-radius: 0.1538rem;
+    -webkit-font-smoothing: antialiased;
+    font-size: map-get($map: $font-size, $key: 'xs');
+    padding: 0.2rem 0.6rem;
+    background: map-get($map: $colors, $key: 'white-1');
+    border:1px solid map-get($map: $colors, $key: 'white-2');
+    i{
+        color: map-get($map: $colors, $key: 'primary');
+        font-weight: bold;
+    }
+}
+.btn:hover{
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+    .nav-item{
+        border-bottom: 3px solid transparent;
+        &.active{
+            color: map-get($map: $colors, $key: 'primary');
+            border-bottom-color: map-get($map: $colors, $key: 'primary');
+        }
+    }
+    &.nav-inverse{
+        .nav-item{
+            border-bottom: 3px solid transparent;
+            &.active{
+                color: map-get($map: $colors, $key: 'white');
+                border-bottom-color: map-get($map: $colors, $key: 'white');
+            }
+        }
+    }
+}
+
+
+.w-100{
+    width: 100%;
+}
+.h-100{
+    height: 100%;
+}
+
+//handle text overflow
+.text-ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//border line
+@each $dir in (left,top,right,bottom) {
+    .border-#{$dir}{
+        border-#{$dir}: solid 1px $border-color;
+    }
+}

@@ -1,0 +1,51 @@
+//colors
+$colors: ("primary": #db9e3f,
+  "white": white,
+  "white-1":#fcfcfc,
+  "white-2":#eceef0,
+  "light": #f9f9f9,
+  "info":#4b67af,
+  "grey": #999,
+  "grey-1":#666,
+  "grey-2":#d4d9de,
+  "dark-1": #343440,
+  "dark": #222,
+  "black": black,
+  "blue":#4394e4,
+  "blue-1":#213797,
+  "red-1":#781a16
+);
+
+$font-size: (
+    xxs:0.6154rem,//8px
+  xs: 0.7692rem, //10px,实际上chrome会按12px展示
+  sm-1:0.8462rem,//11px
+  sm: 0.9231rem, //12px
+  md: 1rem, //13px
+  lg:1.0769rem, //14px
+  xl:1.2308rem //16px
+);
+
+$flex-jc:(start:flex-start,
+  center:center,
+  end:flex-end,
+  between:space-between,
+  around:space-around,
+);
+
+
+$flex-ai:(start:flex-start,
+  center:center,
+  end:flex-end,
+  strech:strech,
+);
+
+//margin
+//0-5,6 ranks
+//.mt-1 => margin-top-1
+$spacing-types:(p:"padding", m:"margin");
+$spacing-direction:(t:"top", b:"bottom", l:"left", r:"right");
+$spacing-base-size:1rem;
+$spacing-size:(0:0, 1:0.25, 2:0.5, 3:1, 4:1.5, 5:3);
+
+$border-color:map-get($map: $colors, $key: "grey-2")
